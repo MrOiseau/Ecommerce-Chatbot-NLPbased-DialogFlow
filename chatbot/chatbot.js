@@ -1,6 +1,6 @@
 'use strict';
 const dialogflow = require('dialogflow');
-var protobuf = require("protobufjs/light");
+const protobuf = require("protobufjs/light");
 //const uuid = require('uuid');
 //const sessionId = uuid.v4();
 const config = require('../config/keys');
@@ -44,7 +44,7 @@ module.exports = {
         };
 
         // Send request and log result
-        const responses = await sessionClient.detectIntent(request);
+        let responses = await sessionClient.detectIntent(request);
         responses = await self.handleAction(responses);
         return responses;
     },

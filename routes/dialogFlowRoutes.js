@@ -1,3 +1,6 @@
+
+const chatbot = require('../chatbot/chatbot');
+
 module.exports = app => {
 
     app.get('/', (req, res) => {
