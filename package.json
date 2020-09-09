@@ -1,0 +1,19 @@
+{
+  "name": "chatbot_for_website",
+  "version": "1.0.0",
+  "description": "Chatbot for Website",
+  "main": "index.js",
+  "engines": {
+    "node": "12.18.1",
+    "npm": "6.13.7"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikola Bijanic",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
