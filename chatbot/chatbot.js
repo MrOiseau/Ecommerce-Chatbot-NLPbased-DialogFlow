@@ -1,8 +1,6 @@
 'use strict';
 const dialogflow = require('dialogflow');
-const protobuf = require("protobufjs/light");
-//const uuid = require('uuid');
-//const sessionId = uuid.v4();
+const {struct} = require('pb-util');
 const config = require('../config/keys');
 
 /**
@@ -56,7 +54,7 @@ module.exports = {
                 event: {
                     name: event,
                     //parameters: structjson.jsonToStructProto(parameters), //Dialogflow's v2 API uses gRPC. You'll need a jsonToStructProto method to convert your JavaScript object to a proto struct.
-                    parameters: protobuf.encoder(parameters), //Dialogflow's v2 API uses gRPC - convert your JavaScript object to a proto struct.
+                    parameters: struct.encode(parameters), //Dialogflow's v2 API uses gRPC - convert your JavaScript object to a proto struct.
                     languageCode: languageCode,
                 },
             }
