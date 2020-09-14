@@ -2,7 +2,7 @@ import React from 'react';
 
 const ItemList = () => (
         <div>
-            Ovde ide lista proizvoda
+            <h1> Ovde ide lista proizvoda </h1>
         </div>
 )
 
