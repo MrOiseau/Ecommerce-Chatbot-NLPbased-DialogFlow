@@ -90,7 +90,7 @@ class Chatbot extends Component {
                 speaks: 'bot',
                 msg: {
                     text: {
-                        text: "I'm having troubles. I need to terminate. will be back later"
+                        text: "I'm having troubles. I need to terminate. will be back later..."
                     }
                 }
             };
