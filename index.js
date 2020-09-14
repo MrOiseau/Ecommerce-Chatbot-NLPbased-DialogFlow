@@ -6,6 +6,7 @@ const app = express();
 const config = require('./config/keys');
 const mongoose = require('mongoose');
 mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+const path = require('path');
 
 require('./models/Registration');
 require('./models/DemandedProgrammingLanguage');
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // index.html for all page routes
     const path = require('path');
-    app.get('/*', (req, res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
