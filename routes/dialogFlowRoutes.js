@@ -2,6 +2,12 @@
 
 const chatbot = require('../chatbot/chatbot');
 
+/*
+Api endpoint for backend - making call to DF
+*/ 
+
+// module = var. koja predstavlja trenutni modul. Exports je obj. koji se prikauje kao module. U taj fajl prosledim app
+// Ekspose obj.u module fajl prosledjujem express app. Pomocu arrow f-je transf. app var.
 module.exports = app => {
 
     // app.get('/', (req, res) => {

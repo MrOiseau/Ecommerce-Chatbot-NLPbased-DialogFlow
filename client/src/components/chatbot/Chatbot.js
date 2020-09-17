@@ -31,10 +31,11 @@ class Chatbot extends Component {
         if (cookies.get('userID') === undefined) {
             cookies.set('userID', uuid(), { path: '/' });
         }
-        //console.log(cookies.get('userID'));
+        // console.log(cookies.get('userID'));
     }
 
     async df_text_query(queryText) {
+        // definisemo na osnovu JSON-a koji dobijamo od Dialogflow-u -queryResult se prosledjuje klijentu od backenda, odnosno fulfillmentMessages
         let says = {
             speaks: 'me',
             msg: {
@@ -43,24 +44,27 @@ class Chatbot extends Component {
                 }
             }
         }
+        // dodajemo poruke koje dobijemo od usera (queryText) u state varijablu messages = stare poruke + nova poruka
         this.setState({ messages: [...this.state.messages, says] });
         try {
+            // request - saljemo text u queryText ka backendeu
             const res = await axios.post('/api/df_text_query', { text: queryText, userID: cookies.get('userID') });
-
             for (let msg of res.data.fulfillmentMessages) {
-                //console.log(JSON.stringify(msg));
+                console.log(JSON.stringify(msg));   // da vidimo React JSON strukturu koju dobijamo - text, payload (cards, quick replies..)
                 says = {
                     speaks: 'bot',
                     msg: msg
                 }
+                // dodajemo poruke koje dobijemo od bota u state varijablu messages = stare poruke + nova poruka
                 this.setState({ messages: [...this.state.messages, says] });
             }
+
         } catch (e) {
             says = {
                 speaks: 'bot',
                 msg: {
                     text: {
-                        text: "Imam problema sa konekcijom sa NLP. Moram da završim. Vraćam se kasnije"
+                        text: "Imam problema sa konekcijom sa NLP platformom. Moram da završim. Vraćam se kasnije"
                     }
                 }
             }
@@ -120,6 +124,7 @@ class Chatbot extends Component {
         }
 
         this.props.history.listen(() => {
+            //console.log('listenig');
             if (this.props.history.location.pathname === '/shop' && !this.state.shopWelcomeSent) {
                 this.df_event_query('WELCOME_SHOP');
                 this.setState({ shopWelcomeSent: true, showBot: true });
@@ -202,9 +207,9 @@ class Chatbot extends Component {
         }
     }
 
-    renderMessages(returnedMessages) {
-        if (returnedMessages) {
-            return returnedMessages.map((message, i) => {
+    renderMessages(stateMessages) {
+        if (stateMessages) {
+            return stateMessages.map((message, i) => {
                 //return <Message key={i} speaks={message.speaks} text={message.msg.text.text}/>;
                 return this.renderOneMessage(message, i);
             }
@@ -227,7 +232,7 @@ class Chatbot extends Component {
                 <div style={{ maxHeigh: 500, minHeigh: 470, width: 400, position: 'absolute', bottom: 0, right: 0, border: '1px solid lightgray' }}>
                     <nav>
                         <div className="nav-wrapper indigo darken-3">
-                            <a href="/" className="brand-logo"> Četbot </a>
+                            <a href="/" className="brand-logo" style={{ paddingLeft: '2%'}}> Četbot </a>
                             <ul id="nav-mobile" className="right hide-on-med-and-down">
                                 <li><a href="/" onClick={this.hide}>Close</a></li>
                             </ul>
@@ -236,13 +241,13 @@ class Chatbot extends Component {
 
                     <div id="chatbot" style={{ minHeight: 388, maxHeight: 388, width: '100%', overflow: 'auto' }}>
                         {this.renderMessages(this.state.messages)}
-                        <div ref={(el) => { this.messagesEnd = el; }}
-                            style={{ float: "left", clear: "both" }}>
+                        <div ref={(el) => { this.messagesEnd = el; }} style={{ float: "left", clear: "both" }}>
                         </div>
                     </div>
 
                     <div className=" col s12" >
-                        <input style={{ margin: 0, paddingLeft: '1%', paddingRight: '1%', width: '98%' }} ref={(input) => { this.talkInput = input; }} placeholder="napiši poruku:" onKeyPress={this._handleInputKeyPress} id="user_says" type="text" />
+                        <input style={{ margin: 0, paddingLeft: '2%', paddingRight: '2%', width: '96%' }} ref={(input) => { this.talkInput = input; }} 
+                        placeholder="napiši poruku:" onKeyPress={this._handleInputKeyPress} id="user_says" type="text" />
                     </div>
                 </div>
             );

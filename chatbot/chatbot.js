@@ -20,10 +20,11 @@ const credentials = {
 // Create a new session
 const sessionClient = new dialogflow.SessionsClient({ projectId, credentials });
 //const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-//const Registration = mongoose.model('registration');
+const Registration = mongoose.model('registration');     //I nacin arhitekture
 
 module.exports = {
     textQuery: async function (text, userID, parameters = {}) {
+        // Da bismo mogli da pristupimo drugoj module.exports metodi (npr. handleAction())
         let self = module.exports;
         const sessionPath = sessionClient.sessionPath(projectId, sessionId + userID);
         // The text query request.
@@ -58,7 +59,7 @@ module.exports = {
                 event: {
                     name: event,
                     //parameters: structjson.jsonToStructProto(parameters), //Dialogflow's v2 API uses gRPC. You'll need a jsonToStructProto method to convert your JavaScript object to a proto struct.
-                    parameters: struct.encode(parameters), //Dialogflow's v2 API uses gRPC - convert your JavaScript object to a proto struct.
+                    parameters: struct.encode(parameters), //Dialogflow's v2 API uses gRPC - convert JavaScript object to a proto struct.
                     languageCode: languageCode,
                 },
             }
@@ -99,7 +100,7 @@ module.exports = {
             address: fields.address.stringValue,
             phone: fields.phone.stringValue,
             email: fields.email.stringValue,
-            dateSent: Date.now()
+            registerDate: Date.now()
         });
         try {
             let reg = await registration.save();
