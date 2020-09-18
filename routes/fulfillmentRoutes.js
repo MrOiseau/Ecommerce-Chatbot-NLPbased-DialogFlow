@@ -39,41 +39,51 @@ module.exports = app => {
 
             try {
                 //a onda useru vracamo response
+
                 const coupons = await Coupon.find({
-                    $or: [{ 'programming_language': agent.parameters.chatbot_jezik }, { 'chatbot_platform': agent.parameters.platform }],
+                    "$or": [{ 'programming_language': agent.parameters.chatbot_jezik }, { 'chatbot_platform': agent.parameters.chatbot_platforma }],
                 });
+
                 // Only programming language selected
-                const arrayOfObjMatchedProgLang = coupons.filter(function (k) {
+                const arrayOfObjMatchedProgLang = await coupons.filter(function (k) {
                     if (agent.parameters.chatbot_jezik !== "")
                         return k.programming_language.includes(agent.parameters.chatbot_jezik);
                 }).map(function (l) { return l.link });
 
                 // Only platform selected
-                const arrayOfObjMatchedPlatform = coupons.filter(function (k) {
+                const arrayOfObjMatchedPlatform = await coupons.filter(function (k) {
                     if (agent.parameters.chatbot_platforma !== "")
                         return k.chatbot_platform.includes(agent.parameters.chatbot_platforma);
                 }).map(function (l) { return l.link });
 
                 // Both programming language & platform selected
-                let intersection = arrayOfObjMatchedProgLang.filter(x => arrayOfObjMatchedPlatform.includes(x));
+                let intersection = await arrayOfObjMatchedProgLang.filter(x => arrayOfObjMatchedPlatform.includes(x));
 
                 let responseText;
 
-                // Both selected
-                if (agent.parameters.chatbot_jezik && agent.parameters.chatbot_jezik !== "" && agent.parameters.chatbot_platforma && agent.parameters.chatbot_platforma !== "")
-                    responseText = `Knjige za programski jezik ${agent.parameters.chatbot_jezik} za ${agent.parameters.chatbot_platforma} četbot platformu su dostupne na linkovima:\n` + intersection.join("\n");
-                // Only programming language
-                else if (agent.parameters.chatbot_jezik && agent.parameters.chatbot_jezik !== "")
-                    responseText = `Knjige za programski jezik ${agent.parameters.chatbot_jezik} su dostupne na linkovima: \n` + arrayOfObjMatchedProgLang.join("\n");
-                // Only platform
-                else if (agent.parameters.chatbot_platforma && agent.parameters.chatbot_platforma !== "")
-                    responseText = `Knjige za četbot platformu ${agent.parameters.chatbot_platforma} su dostupne na linkovima: \n` + arrayOfObjMatchedPlatform.join("\n");
-                //Neither one selected  
-                else
-                    responseText = `Izvolite link ka svim našim knjigama o četbotovima:\n` +
-                        `https://www.amazon.com/s?k=chatbots&i=stripbooks-intl-ship&ref=nb_sb_noss`;
+                console.log(coupons)
+                if (coupons.length === 0) {
+                    responseText = 'Trenutno nemamo takvih knjigaaaaaaaaaaaaaa';
 
+                }
+                else {
+                    // Both selected
+                    if (agent.parameters.chatbot_jezik && agent.parameters.chatbot_jezik !== "" && agent.parameters.chatbot_platforma && agent.parameters.chatbot_platforma !== "")
+                        responseText = `Knjige za programski jezik ${agent.parameters.chatbot_jezik} za ${agent.parameters.chatbot_platforma} četbot platformu su dostupne na linkovima:\n` + intersection.join("\n");
+                    // Only programming language
+                    else if (agent.parameters.chatbot_jezik && agent.parameters.chatbot_jezik !== "")
+                        responseText = `Knjige za programski jezik ${agent.parameters.chatbot_jezik} su dostupne na linkovima: \n` + arrayOfObjMatchedProgLang.join("\n");
+                    // Only platform
+                    else if (agent.parameters.chatbot_platforma && agent.parameters.chatbot_platforma !== "")
+                        responseText = `Knjige za četbot platformu ${agent.parameters.chatbot_platforma} su dostupne na linkovima: \n` + arrayOfObjMatchedPlatform.join("\n");
+                    //Neither one selected  
+                    else
+                        responseText = `Izvolite link ka svim našim knjigama o četbotovima:\n` +
+                            `https://www.amazon.com/s?k=chatbots&i=stripbooks-intl-ship&ref=nb_sb_noss`;
+
+                }
                 agent.add(responseText);
+
             } catch (err) {
                 return err;
             }
