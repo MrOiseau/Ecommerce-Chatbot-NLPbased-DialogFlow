@@ -5,7 +5,7 @@
 
  ## Architecture: Chatbot components and interaction
  ![one](./Screenshots/Chatbot_components_and_interaction.png | width=500)
-
+ 
 
  ## Featured technologies, 3rd party solutions & used platforms
 * - Backend app: [Node.js](https://nodejs.org/) - An asynchronous event driven, open source, free environment for JavaScript applications built on Chrome’s v8 engine. The reason for this choice is its popularity - it's puting it in the first place of the most used programming languages, which means the availability of documentation and solutions to potential problems, which facilitates and speed up development.
