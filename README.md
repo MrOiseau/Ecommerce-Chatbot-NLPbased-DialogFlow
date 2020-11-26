@@ -4,7 +4,7 @@
  Web-based chatbot for e-commerce implemented using NLU of DialogFlow, React, NodeJs & MongoDB.
 
  ## Architecture: Chatbot components and interaction
- ![one](./Screenshots/Chatbot_components_and_interaction.png | width=500)
+ ![one](./Screenshots/Chatbot_components_and_interaction.png)
  
 
  ## Featured technologies, 3rd party solutions & used platforms
@@ -30,7 +30,7 @@
             - [universal-cookie](https://www.npmjs.com/package/cookie-universal) - it was used to set a userID on a cookie to allow one user to have one session
 
 Components of visual part of Chatbot
- ![two](./Screenshots/Components_of_visual_part_of_chatbot.jpg | width=500)
+ ![two](./Screenshots/Components_of_visual_part_of_chatbot.jpg)
 
 
 * - Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/): Platform for processing and understanding natural language (NLU), in a way suitable for computer systems. Simply put - it helps to translate human language into computer language and vice versa.
