@@ -8,7 +8,8 @@
  
 
  ## Featured technologies, 3rd party solutions & used platforms
-   ### Backend app: [Node.js](https://nodejs.org/) - An asynchronous event driven, open source, free environment for JavaScript applications built on Chrome’s v8 engine. The reason for this choice is its popularity - it's puting it in the first place of the most used programming languages, which means the availability of documentation and solutions to potential problems, which facilitates and speed up development.
+   ## Backend app: [Node.js](https://nodejs.org/) 
+An asynchronous event driven, open source, free environment for JavaScript applications built on Chrome’s v8 engine. The reason for this choice is its popularity - it's puting it in the first place of the most used programming languages, which means the availability of documentation and solutions to potential problems, which facilitates and speed up development.
         Used libraries: 
             - [express](https://expressjs.com/) - the most popular web framework for Node.js and the basic library for many other web frameworks used with Node.js <br/>
             - [nodemon](https://www.npmjs.com/package/nodemon) - helps develop Node.js applications by automatically restarting the Node.js application when changes occur in the code file
@@ -19,7 +20,7 @@
             - [dialogflow-fulfillment](https://www.npmjs.com/package/dialogflow-fulfillment) - the library enables the connection of systems, databases and APIs with Dialogflow (a system for understanding and processing natural language) with intents on Dialogflow on which the webhook call for fulfillment is enabled
             - [actions-on-google](https://www.npmjs.com/package/actions-on-google) - this client library is commonly used to create actions for Google Assistant and supports Actions SDK, Smart Home and Dialogflow fulfillment, for which is required to properly work
  
-   ### Frontend app: [React](https://reactjs.org/) - JavaScript library for building user interface. Used in project because it is the most popular choice among developers
+   ## Frontend app: [React](https://reactjs.org/) - JavaScript library for building user interface. Used in project because it is the most popular choice among developers
         Used libraries: 
             - [concurrently](https://www.npmjs.com/package/concurrently) - for parallel startup of frontend and backend servers
             - [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) - allows indirect access to content in communication between backend and frontend. It also allows the usage of relative paths
@@ -29,18 +30,18 @@
             - [uuid](https://www.npmjs.com/package/uuid) - to generate unique string. Uuid-v4 was used to generate random userID numbers that is then set as a Dialogflow session
             - [universal-cookie](https://www.npmjs.com/package/cookie-universal) - it was used to set a userID on a cookie to allow one user to have one session
 
-       #### Components of visual part of Chatbot
+       ## Components of visual part of Chatbot
  ![two](./Screenshots/Components_of_visual_part_of_chatbot.jpg)
 <img src="./Screenshots/Components_of_visual_part_of_chatbot.jpg" width="400" alt="Components_of_visual_part_of_chatbot">
 
-   ### Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/)
+   ## Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/)
    Platform for processing and understanding natural language (NLU), in a way suitable for computer systems. Simply put - it helps to translate human language into computer language and vice versa.
         Steps in using Dialogflows:
             1. Creating an agent - it's representing a chat application.
             2. Understanding what the user is saying, mapping that to intents that have been previously created (intent matching),
             3. After understanding the user's wish, in order to return the answer, an action is taken based on the defined actions and parameters in the intent (entities are used to define variables to be collected and stored), followed by sending the answer to the user.
 
-   ### Database: [MongoDB](https://www.mongodb.com/) 
+   ## Database: [MongoDB](https://www.mongodb.com/) 
 Open source, a leading non-relational database that uses flexible JSON documents instead of tables, which are the basis of relational databases. As the document model is mapped to objects in the application code, working with data is facilitated, which is the reason for choosing this database.
 
 
