@@ -33,7 +33,7 @@
             &emsp;- [uuid](https://www.npmjs.com/package/uuid) - to generate unique string. Uuid-v4 was used to generate random userID numbers that is then set as a Dialogflow session <br/>
             &emsp;- [universal-cookie](https://www.npmjs.com/package/cookie-universal) - it was used to set a userID on a cookie to allow one user to have one session <br/>
 
-   **Components of visual part of Chatbot**
+   **Components of visual part of Chatbot**  <br/>
 &emsp;&emsp; <img src="./Screenshots/Components_of_visual_part_of_chatbot.jpg" width="600" alt="Components_of_visual_part_of_chatbot">
 
    ## Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/) <br/>
