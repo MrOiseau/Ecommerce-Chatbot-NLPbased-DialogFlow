@@ -23,6 +23,7 @@
  
    ## Frontend app: [React](https://reactjs.org/)
    *JavaScript library for building user interface. Used in project because it is the most popular choice among developers.* <br/>
+   <br/>
         **Used libraries:** <br/>
             &emsp;- [concurrently](https://www.npmjs.com/package/concurrently) - for parallel startup of frontend and backend servers <br/>
             &emsp;- [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) - allows indirect access to content in communication between backend and frontend. It also allows the usage of relative paths <br/>
@@ -33,7 +34,7 @@
             &emsp;- [universal-cookie](https://www.npmjs.com/package/cookie-universal) - it was used to set a userID on a cookie to allow one user to have one session <br/>
 
    **Components of visual part of Chatbot**
-<img src="./Screenshots/Components_of_visual_part_of_chatbot.jpg" width="600" alt="Components_of_visual_part_of_chatbot">
+&emsp;&emsp; <img src="./Screenshots/Components_of_visual_part_of_chatbot.jpg" width="600" alt="Components_of_visual_part_of_chatbot">
 
    ## Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/) <br/>
 *Platform for processing and understanding natural language (NLU), in a way suitable for computer systems. Simply put - it helps to translate human language into computer language and vice versa.* <br/>
