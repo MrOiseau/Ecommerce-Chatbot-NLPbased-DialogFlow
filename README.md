@@ -49,7 +49,7 @@
 *Open source, a leading non-relational database that uses flexible JSON documents instead of tables, which are the basis of relational databases. As the document model is mapped to objects in the application code, working with data is facilitated, which is the reason for choosing this database.* <br/>
 
 
- ## Video: Chatbot in a work
+ ## Video: Chatbot in a work (click on the photo below)
  [![Video demponstration](https://i9.ytimg.com/vi/41er2DovjmQ/mq1.jpg?sqp=CMzc__0F&rs=AOn4CLDynuQagJiyCmo2qOCR8-mXXpVEew)](https://www.youtube.com/watch?v=41er2DovjmQ)
 
 
