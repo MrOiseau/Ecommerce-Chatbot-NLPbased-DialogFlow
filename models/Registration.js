@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');   //get mongoose library
-const { Schema } = mongoose;            //get Schema class iz mongoose
+const mongoose = require('mongoose');  
+const { Schema } = mongoose;            
 
-const registrationSchema = new Schema({     //prosledjujem objekat sa property imenima i njihovim Schema tipovima
+const registrationSchema = new Schema({     
     name: String,
     address: String,
     phone: String,
@@ -9,4 +9,4 @@ const registrationSchema = new Schema({     //prosledjujem objekat sa property i
     registerDate: Date
 });
 
-mongoose.model('registration', registrationSchema);     //jer Schema-u trebam registrovati kao model
+mongoose.model('registration', registrationSchema);     

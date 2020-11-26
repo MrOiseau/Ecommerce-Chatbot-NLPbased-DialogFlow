@@ -7,7 +7,7 @@ const QuickReply = (props) => {
         return (
             <a style={{ margin: 3 }} href="/" className="btn-floating btn-large waves-effect green accent-4"
                 onClick={(event) =>
-                    props.click(     //parametar koji dolazi od QuickReply komponente, idem tamo da implementiram
+                    props.click(     
                         event,
                         props.reply.structValue.fields.payload.stringValue,
                         props.reply.structValue.fields.text.stringValue,

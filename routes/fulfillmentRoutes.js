@@ -16,12 +16,12 @@ module.exports = app => {
 
 
         async function learn(agent) {
-            //I: proverim da li imam u Bazi knjigu koji je user zahtevao. Ako dokument za ovu knjigu nije ovde, dodajem ga
+            
             DemandedProgrammingLanguage.findOne({ 'course': agent.parameters.chatbot_jezik }, function (err, course) {
                 if (course !== null) {
                     course.counter++;
                     course.save();
-                } else {                    //ako dokument nije pronadjen
+                } else {                   
                     const demanded_programming_language = new DemandedProgrammingLanguage({ course: agent.parameters.chatbot_jezik });
                     demanded_programming_language.save();
                 }
@@ -31,14 +31,13 @@ module.exports = app => {
                 if (platform !== null) {
                     platform.counter++;
                     platform.save();
-                } else {                    //ako dokument nije pronadjen
+                } else {                    
                     const demanded_platform = new DemandedPlatform({ platform: agent.parameters.chatbot_platforma });
                     demanded_platform.save();
                 }
             });
 
             try {
-                //a onda useru vracamo response
 
                 const coupons = await Coupon.find({
                     "$or": [{ 'programming_language': agent.parameters.chatbot_jezik }, { 'chatbot_platform': agent.parameters.chatbot_platforma }],
@@ -91,16 +90,15 @@ module.exports = app => {
         }
 
 
-        function fallback(agent) {                              //U metodi saljemo nazad poruku do DialogFlowa
-            agent.add(`Nisam Vas razumeo`);                     //da bismo poslali text response nazad do DialogFlowa (text reply)
+        function fallback(agent) {                              
+            agent.add(`Nisam Vas razumeo`);                    
             agent.add(`Oprostite, možete li pokušati ponovo?`);
         }
 
         let intentMap = new Map();
-        intentMap.set('snupi', snoopy);                         //pr.
+        intentMap.set('snupi', snoopy);                         
         intentMap.set('učenje kurseva', learn);
-        intentMap.set('Default Fallback Intent', fallback);     //imeIntenta, metodaKojaCeRunnovatiKodZaTajIntent
-        //u intentsMap dodajem intente koji imaju enableovan fulfillment
+        intentMap.set('Default Fallback Intent', fallback);    
 
         agent.handleRequest(intentMap);
     });

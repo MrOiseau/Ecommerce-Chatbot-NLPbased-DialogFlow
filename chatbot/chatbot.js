@@ -20,7 +20,7 @@ const credentials = {
 // Create a new session
 const sessionClient = new dialogflow.SessionsClient({ projectId, credentials });
 //const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-const Registration = mongoose.model('registration');     //I nacin arhitekture
+const Registration = mongoose.model('registration');     
 
 module.exports = {
     textQuery: async function (text, userID, parameters = {}) {
@@ -79,17 +79,10 @@ module.exports = {
         switch (queryResult.action) {
             case 'recommendbooks-yes':
                 if (queryResult.allRequiredParamsPresent) {
-                    //citam parametre iz parameters.field koje posle cuvam u bazu 
                     self.saveRegistration(queryResult.parameters.fields);
                 }
                 break;
         }
-    //Ovako bih citao sve info koje mi trebaju, ali kako app bude rasla, 
-    // hvatacu vise od 1 action ovde, pa sam napravio switch
-        // console.log(queryResult.action);
-        // console.log(queryResult.allRequiredParamsPresent);
-        // console.log(queryResult.fulfillmentMessages);
-        // console.log(queryResult.parameters.fields);
 
         return responses;
     },
@@ -104,7 +97,7 @@ module.exports = {
         });
         try {
             let reg = await registration.save();
-            console.log(reg);       //da vidim u konzoli sta cuva u MongoDB
+            console.log(reg);       
         } catch (err) {
             console.log(err);
         }
