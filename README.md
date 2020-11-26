@@ -34,6 +34,7 @@
             &emsp;- [universal-cookie](https://www.npmjs.com/package/cookie-universal) - it was used to set a userID on a cookie to allow one user to have one session <br/>
 
    **Components of visual part of Chatbot**  <br/>
+   <br/>
 &emsp;&emsp; <img src="./Screenshots/Components_of_visual_part_of_chatbot.jpg" width="600" alt="Components_of_visual_part_of_chatbot">
 
    ## Natural Language Parsing & Understanding: [DialogFlow](https://dialogflow.cloud.google.com/) <br/>
