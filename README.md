@@ -27,7 +27,7 @@
         **Used libraries:** <br/>
             &emsp;- [concurrently](https://www.npmjs.com/package/concurrently) - for parallel startup of frontend and backend servers <br/>
             &emsp;- [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) - allows indirect access to content in communication between backend and frontend. It also allows the usage of relative paths <br/>
-            &emsp;- [eact-router-dom](https://www.npmjs.com/package/react-router-dom) - to route pages in App.js and track the user's web browser history <br/>
+            &emsp;- [react-router-dom](https://www.npmjs.com/package/react-router-dom) - to route pages in App.js and track the user's web browser history <br/>
             &emsp;- [materialize-css](https://www.npmjs.com/package/materialize-css) - the lightest memory CSS framework on the market developed by Google <br/>
             &emsp;- [axios](https://github.com/axios/axios) - Premise-based HTTP client for web browser and node.js <br/>
             &emsp;- [uuid](https://www.npmjs.com/package/uuid) - to generate unique string. Uuid-v4 was used to generate random userID numbers that is then set as a Dialogflow session <br/>
