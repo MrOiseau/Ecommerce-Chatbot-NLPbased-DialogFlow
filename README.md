@@ -50,7 +50,7 @@
 
 
  ## Video: Chatbot in a work (*click on the photo below*)
- [![Video demponstration](https://i9.ytimg.com/vi/41er2DovjmQ/mq1.jpg?sqp=CMzc__0F&rs=AOn4CLDynuQagJiyCmo2qOCR8-mXXpVEew)](https://www.youtube.com/watch?v=41er2DovjmQ)
+ ![Video demponstration](https://i9.ytimg.com/vi/41er2DovjmQ/mq1.jpg?sqp=CMzc__0F&rs=AOn4CLDynuQagJiyCmo2qOCR8-mXXpVEew)](https://www.youtube.com/watch?v=41er2DovjmQ)
 
 
  ## Final talk:
